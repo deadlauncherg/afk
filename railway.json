@@ -1,0 +1,12 @@
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "builder": "DOCKERFILE",
+    "dockerfilePath": "Dockerfile"
+  },
+  "deploy": {
+    "startCommand": "sh -c 'exec start-notebook.py --ServerApp.ip=0.0.0.0 --ServerApp.port=${PORT:-8080} --ServerApp.allow_remote_access=True --ServerApp.root_dir=/home/jovyan/work'",
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10
+  }
+}
